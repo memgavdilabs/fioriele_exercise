@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0"
+	xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+	xmlns="http://docs.oasis-open.org/odata/ns/edm">
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+		<edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema Namespace="com.sap.gateway.srvd.zecco_srv_def.v0001" Alias="SAP__self">
+			<Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+			<EntityType Name="LocationType">
+				<Key>
+					<PropertyRef Name="LocationId"/>
+				</Key>
+				<Property Name="LocationId" Type="Edm.String" Nullable="false" MaxLength="8"/>
+				<Property Name="City" Type="Edm.String" Nullable="false" MaxLength="100"/>
+				<Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3"/>
+				<Property Name="Latitude" Type="Edm.Decimal" Nullable="false" Precision="8" Scale="6"/>
+				<Property Name="Longitude" Type="Edm.Decimal" Nullable="false" Precision="9" Scale="6"/>
+			</EntityType>
+			<EntityType Name="GoodsType">
+				<Key>
+					<PropertyRef Name="ItemId"/>
+					<PropertyRef Name="WarehouseId"/>
+				</Key>
+				<Property Name="ItemId" Type="Edm.String" Nullable="false" MaxLength="8"/>
+				<Property Name="WarehouseId" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="ProductId" Type="Edm.String" Nullable="false" MaxLength="20"/>
+				<Property Name="SpaceRequired" Type="Edm.Int16" Nullable="false"/>
+				<Property Name="State" Type="Edm.String" Nullable="false" MaxLength="2"/>
+				<Property Name="Cost" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+				<Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5"/>
+				<Property Name="DeliveryDate" Type="Edm.Date"/>
+				<Property Name="QuantityStore" Type="Edm.Int16" Nullable="false"/>
+				<Property Name="QuantityWh" Type="Edm.Int16" Nullable="false"/>
+				<Property Name="__EntityControl" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.EntityControl"/>
+				<Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zecco_srv_def.v0001.SAP__Message)" Nullable="false"/>
+				<NavigationProperty Name="_Products" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.ProductType" Nullable="false"/>
+				<NavigationProperty Name="_Warehouse" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.WarehouseType" Nullable="false" Partner="_Goods">
+					<ReferentialConstraint Property="WarehouseId" ReferencedProperty="Id"/>
+				</NavigationProperty>
+			</EntityType>
+			<EntityType Name="VendorType">
+				<Key>
+					<PropertyRef Name="VendorId"/>
+				</Key>
+				<Property Name="VendorId" Type="Edm.String" Nullable="false" MaxLength="8"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="100"/>
+				<Property Name="LocationId" Type="Edm.String" Nullable="false" MaxLength="8"/>
+				<Property Name="LogoUrl" Type="Edm.String" Nullable="false" MaxLength="255"/>
+				<Property Name="__EntityControl" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.EntityControl"/>
+				<Property Name="__OperationControl" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.VendorOperationControl"/>
+				<Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zecco_srv_def.v0001.SAP__Message)" Nullable="false"/>
+				<NavigationProperty Name="_Location" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.LocationType" Nullable="false"/>
+				<NavigationProperty Name="_Products" Type="Collection(com.sap.gateway.srvd.zecco_srv_def.v0001.ProductType)" Partner="_Vendor">
+					<OnDelete Action="Cascade"/>
+				</NavigationProperty>
+			</EntityType>
+			<EntityType Name="WarehouseType">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property Name="Id" Type="Edm.Guid" Nullable="false"/>
+				<Property Name="SpaceAvailable" Type="Edm.Int16" Nullable="false"/>
+				<Property Name="SpaceUtilized" Type="Edm.Int16" Nullable="false"/>
+				<Property Name="LocationId" Type="Edm.String" Nullable="false" MaxLength="8"/>
+				<Property Name="__CreateByAssociationControl" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.WarehouseCbAControl"/>
+				<Property Name="__EntityControl" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.EntityControl"/>
+				<Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zecco_srv_def.v0001.SAP__Message)" Nullable="false"/>
+				<NavigationProperty Name="_Goods" Type="Collection(com.sap.gateway.srvd.zecco_srv_def.v0001.GoodsType)" Partner="_Warehouse">
+					<OnDelete Action="Cascade"/>
+				</NavigationProperty>
+				<NavigationProperty Name="_Location" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.LocationType" Nullable="false"/>
+			</EntityType>
+			<EntityType Name="ProductType">
+				<Key>
+					<PropertyRef Name="ProductId"/>
+					<PropertyRef Name="VendorId"/>
+				</Key>
+				<Property Name="ProductId" Type="Edm.String" Nullable="false" MaxLength="8"/>
+				<Property Name="VendorId" Type="Edm.String" Nullable="false" MaxLength="8"/>
+				<Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="50"/>
+				<Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="256"/>
+				<Property Name="SpaceRequired" Type="Edm.Int16" Nullable="false"/>
+				<Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+				<Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5"/>
+				<Property Name="Promoted" Type="Edm.String" Nullable="false" MaxLength="3"/>
+				<Property Name="Quantity" Type="Edm.Int16" Nullable="false"/>
+				<Property Name="ProductType1" Type="Edm.String" Nullable="false" MaxLength="1"/>
+				<Property Name="ImageUrl" Type="Edm.String" Nullable="false" MaxLength="255"/>
+				<Property Name="__EntityControl" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.EntityControl"/>
+				<Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zecco_srv_def.v0001.SAP__Message)" Nullable="false"/>
+				<NavigationProperty Name="_Vendor" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.VendorType" Nullable="false" Partner="_Products">
+					<ReferentialConstraint Property="VendorId" ReferencedProperty="VendorId"/>
+				</NavigationProperty>
+			</EntityType>
+			<ComplexType Name="WarehouseCbAControl">
+				<Property Name="_Goods" Type="Edm.Boolean" Nullable="false"/>
+			</ComplexType>
+			<ComplexType Name="VendorOperationControl">
+				<Property Name="replenishProduct" Type="Edm.Boolean" Nullable="false"/>
+			</ComplexType>
+			<ComplexType Name="EntityControl">
+				<Property Name="Deletable" Type="Edm.Boolean" Nullable="false"/>
+				<Property Name="Updatable" Type="Edm.Boolean" Nullable="false"/>
+			</ComplexType>
+			<ComplexType Name="SAP__Message">
+				<Property Name="code" Type="Edm.String" Nullable="false"/>
+				<Property Name="message" Type="Edm.String" Nullable="false"/>
+				<Property Name="target" Type="Edm.String"/>
+				<Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+				<Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+				<Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+				<Property Name="longtextUrl" Type="Edm.String"/>
+			</ComplexType>
+			<Action Name="replenishProduct" EntitySetPath="_it" IsBound="true">
+				<Parameter Name="_it" Type="com.sap.gateway.srvd.zecco_srv_def.v0001.VendorType" Nullable="false"/>
+				<Parameter Name="ProductID" Type="Edm.String" Nullable="false" MaxLength="8"/>
+				<Parameter Name="NumberOfItems" Type="Edm.Int16" Nullable="false"/>
+				<Parameter Name="WarehouseID" Type="Edm.Guid" Nullable="true"/>
+				<ReturnType Type="com.sap.gateway.srvd.zecco_srv_def.v0001.VendorType" Nullable="false"/>
+			</Action>
+			<EntityContainer Name="Container">
+				<EntitySet Name="Goods" EntityType="com.sap.gateway.srvd.zecco_srv_def.v0001.GoodsType">
+					<NavigationPropertyBinding Path="_Products" Target="Product"/>
+					<NavigationPropertyBinding Path="_Warehouse" Target="Warehouse"/>
+				</EntitySet>
+				<EntitySet Name="Location" EntityType="com.sap.gateway.srvd.zecco_srv_def.v0001.LocationType"/>
+				<EntitySet Name="Product" EntityType="com.sap.gateway.srvd.zecco_srv_def.v0001.ProductType">
+					<NavigationPropertyBinding Path="_Vendor" Target="Vendor"/>
+				</EntitySet>
+				<EntitySet Name="Vendor" EntityType="com.sap.gateway.srvd.zecco_srv_def.v0001.VendorType">
+					<NavigationPropertyBinding Path="_Location" Target="Location"/>
+					<NavigationPropertyBinding Path="_Products" Target="Product"/>
+				</EntitySet>
+				<EntitySet Name="Warehouse" EntityType="com.sap.gateway.srvd.zecco_srv_def.v0001.WarehouseType">
+					<NavigationPropertyBinding Path="_Goods" Target="Goods"/>
+					<NavigationPropertyBinding Path="_Location" Target="Location"/>
+				</EntitySet>
+			</EntityContainer>
+			<Annotations Target="SAP__self.LocationType/LocationId">
+				<Annotation Term="SAP__common.IsDigitSequence"/>
+				<Annotation Term="SAP__common.Label" String="Location ID"/>
+			</Annotations>
+			<Annotations Target="SAP__self.LocationType/Country">
+				<Annotation Term="SAP__common.IsUpperCase"/>
+				<Annotation Term="SAP__common.Label" String="Country/Region Key"/>
+				<Annotation Term="SAP__common.Heading" String="C/R"/>
+			</Annotations>
+			<Annotations Target="SAP__self.LocationType">
+				<Annotation Term="SAP__common.Label" String="Location"/>
+			</Annotations>
+			<Annotations Target="SAP__self.Container/Location">
+				<Annotation Term="SAP__capabilities.SearchRestrictions">
+					<Record>
+						<PropertyValue Property="Searchable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.InsertRestrictions">
+					<Record>
+						<PropertyValue Property="Insertable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.DeleteRestrictions">
+					<Record>
+						<PropertyValue Property="Deletable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.UpdateRestrictions">
+					<Record>
+						<PropertyValue Property="Updatable" Bool="false"/>
+						<PropertyValue Property="QueryOptions">
+							<Record>
+								<PropertyValue Property="SelectSupported" Bool="true"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__core.OptimisticConcurrency">
+					<Collection/>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="SAP__self.GoodsType/ItemId">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__common.IsDigitSequence"/>
+				<Annotation Term="SAP__common.Label" String="ID"/>
+			</Annotations>
+			<Annotations Target="SAP__self.GoodsType/WarehouseId">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__common.Label" String="UUID"/>
+				<Annotation Term="SAP__common.QuickInfo" String="16 Byte UUID in 16 Bytes (Raw Format)"/>
+			</Annotations>
+			<Annotations Target="SAP__self.GoodsType/State">
+				<Annotation Term="SAP__common.IsUpperCase"/>
+				<Annotation Term="SAP__common.Label" String="State"/>
+			</Annotations>
+			<Annotations Target="SAP__self.GoodsType/Cost">
+				<Annotation Term="SAP__measures.ISOCurrency" Path="CurrencyCode"/>
+			</Annotations>
+			<Annotations Target="SAP__self.GoodsType/CurrencyCode">
+				<Annotation Term="SAP__common.IsCurrency"/>
+			</Annotations>
+			<Annotations Target="SAP__self.GoodsType/__EntityControl">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__UI.HiddenFilter"/>
+				<Annotation Term="SAP__UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="SAP__self.Container/Goods">
+				<Annotation Term="SAP__capabilities.NavigationRestrictions">
+					<Record>
+						<PropertyValue Property="RestrictedProperties">
+							<Collection>
+								<Record>
+									<PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Products"/>
+									<PropertyValue Property="InsertRestrictions">
+										<Record>
+											<PropertyValue Property="Insertable" Bool="false"/>
+										</Record>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Warehouse"/>
+									<PropertyValue Property="InsertRestrictions">
+										<Record>
+											<PropertyValue Property="Insertable" Bool="false"/>
+										</Record>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.SearchRestrictions">
+					<Record>
+						<PropertyValue Property="Searchable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>__EntityControl</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>__EntityControl</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.InsertRestrictions">
+					<Record>
+						<PropertyValue Property="Insertable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.DeleteRestrictions">
+					<Record>
+						<PropertyValue Property="Deletable" Path="__EntityControl/Deletable"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.UpdateRestrictions">
+					<Record>
+						<PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+						<PropertyValue Property="QueryOptions">
+							<Record>
+								<PropertyValue Property="SelectSupported" Bool="true"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__core.OptimisticConcurrency">
+					<Collection/>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="SAP__self.GoodsType">
+				<Annotation Term="SAP__common.Label" String="Goods"/>
+				<Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+			</Annotations>
+			<Annotations Target="SAP__self.Container">
+				<Annotation Term="SAP__CodeList.CurrencyCodes">
+					<Record>
+						<PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+						<PropertyValue Property="CollectionPath" String="Currencies"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+				<Annotation Term="SAP__capabilities.FilterFunctions">
+					<Collection>
+						<String>eq</String>
+						<String>ne</String>
+						<String>gt</String>
+						<String>ge</String>
+						<String>lt</String>
+						<String>le</String>
+						<String>and</String>
+						<String>or</String>
+						<String>contains</String>
+						<String>startswith</String>
+						<String>endswith</String>
+						<String>any</String>
+						<String>all</String>
+					</Collection>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.SupportedFormats">
+					<Collection>
+						<String>application/json</String>
+						<String>application/pdf</String>
+					</Collection>
+				</Annotation>
+				<Annotation Term="SAP__PDF.Features">
+					<Record>
+						<PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+						<PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+						<PropertyValue Property="ArchiveFormat" Bool="true"/>
+						<PropertyValue Property="Border" Bool="true"/>
+						<PropertyValue Property="CoverPage" Bool="true"/>
+						<PropertyValue Property="FitToPage" Bool="true"/>
+						<PropertyValue Property="FontName" Bool="true"/>
+						<PropertyValue Property="FontSize" Bool="true"/>
+						<PropertyValue Property="Margin" Bool="true"/>
+						<PropertyValue Property="Padding" Bool="true"/>
+						<PropertyValue Property="Signature" Bool="true"/>
+						<PropertyValue Property="HeaderFooter" Bool="true"/>
+						<PropertyValue Property="ResultSizeDefault" Int="20000"/>
+						<PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+				<Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorType/VendorId">
+				<Annotation Term="SAP__common.IsDigitSequence"/>
+				<Annotation Term="SAP__common.Label" String="ID"/>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorType/LocationId">
+				<Annotation Term="SAP__common.IsDigitSequence"/>
+				<Annotation Term="SAP__common.Label" String="Location ID"/>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorType/__EntityControl">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__UI.HiddenFilter"/>
+				<Annotation Term="SAP__UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorType/__OperationControl">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__UI.HiddenFilter"/>
+				<Annotation Term="SAP__UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="SAP__self.Container/Vendor">
+				<Annotation Term="SAP__capabilities.NavigationRestrictions">
+					<Record>
+						<PropertyValue Property="RestrictedProperties">
+							<Collection>
+								<Record>
+									<PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Location"/>
+									<PropertyValue Property="InsertRestrictions">
+										<Record>
+											<PropertyValue Property="Insertable" Bool="false"/>
+										</Record>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Products"/>
+									<PropertyValue Property="InsertRestrictions">
+										<Record>
+											<PropertyValue Property="Insertable" Bool="false"/>
+										</Record>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.SearchRestrictions">
+					<Record>
+						<PropertyValue Property="Searchable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>__EntityControl</PropertyPath>
+								<PropertyPath>__OperationControl</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>__EntityControl</PropertyPath>
+								<PropertyPath>__OperationControl</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.DeleteRestrictions">
+					<Record>
+						<PropertyValue Property="Deletable" Path="__EntityControl/Deletable"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.UpdateRestrictions">
+					<Record>
+						<PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+						<PropertyValue Property="QueryOptions">
+							<Record>
+								<PropertyValue Property="SelectSupported" Bool="true"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__core.OptimisticConcurrency">
+					<Collection/>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorType/_Products">
+				<Annotation Term="SAP__common.Composition"/>
+			</Annotations>
+			<Annotations Target="SAP__self.replenishProduct(SAP__self.VendorType)">
+				<Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/replenishProduct"/>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorType">
+				<Annotation Term="SAP__common.Label" String="Vendor"/>
+				<Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseType/Id">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__common.Label" String="UUID"/>
+				<Annotation Term="SAP__common.QuickInfo" String="16 Byte UUID in 16 Bytes (Raw Format)"/>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseType/LocationId">
+				<Annotation Term="SAP__common.IsDigitSequence"/>
+				<Annotation Term="SAP__common.Label" String="Location ID"/>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseType/__CreateByAssociationControl">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__UI.HiddenFilter"/>
+				<Annotation Term="SAP__UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseType/__EntityControl">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__UI.HiddenFilter"/>
+				<Annotation Term="SAP__UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseType/_Goods">
+				<Annotation Term="SAP__common.Composition"/>
+			</Annotations>
+			<Annotations Target="SAP__self.Container/Warehouse">
+				<Annotation Term="SAP__capabilities.NavigationRestrictions">
+					<Record>
+						<PropertyValue Property="RestrictedProperties">
+							<Collection>
+								<Record>
+									<PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Goods"/>
+									<PropertyValue Property="InsertRestrictions">
+										<Record>
+											<PropertyValue Property="Insertable" Path="__CreateByAssociationControl/_Goods"/>
+										</Record>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Location"/>
+									<PropertyValue Property="InsertRestrictions">
+										<Record>
+											<PropertyValue Property="Insertable" Bool="false"/>
+										</Record>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.SearchRestrictions">
+					<Record>
+						<PropertyValue Property="Searchable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>__CreateByAssociationControl</PropertyPath>
+								<PropertyPath>__EntityControl</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>__CreateByAssociationControl</PropertyPath>
+								<PropertyPath>__EntityControl</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.DeleteRestrictions">
+					<Record>
+						<PropertyValue Property="Deletable" Path="__EntityControl/Deletable"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.UpdateRestrictions">
+					<Record>
+						<PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+						<PropertyValue Property="QueryOptions">
+							<Record>
+								<PropertyValue Property="SelectSupported" Bool="true"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__core.OptimisticConcurrency">
+					<Collection/>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseType">
+				<Annotation Term="SAP__common.Label" String="Warehouse"/>
+				<Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType/ProductId">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__common.IsDigitSequence"/>
+				<Annotation Term="SAP__common.Label" String="ID"/>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType/VendorId">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__common.IsDigitSequence"/>
+				<Annotation Term="SAP__common.Label" String="ID"/>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType/Price">
+				<Annotation Term="SAP__measures.ISOCurrency" Path="CurrencyCode"/>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType/CurrencyCode">
+				<Annotation Term="SAP__common.IsCurrency"/>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType/Promoted">
+				<Annotation Term="SAP__common.IsUpperCase"/>
+				<Annotation Term="SAP__common.Label" String="Link field"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Link field for view query"/>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType/ProductType1">
+				<Annotation Term="SAP__common.IsUpperCase"/>
+				<Annotation Term="SAP__common.Label" String="Product Types"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Product Type"/>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType/__EntityControl">
+				<Annotation Term="SAP__core.Computed"/>
+				<Annotation Term="SAP__UI.HiddenFilter"/>
+				<Annotation Term="SAP__UI.Hidden"/>
+			</Annotations>
+			<Annotations Target="SAP__self.Container/Product">
+				<Annotation Term="SAP__capabilities.NavigationRestrictions">
+					<Record>
+						<PropertyValue Property="RestrictedProperties">
+							<Collection>
+								<Record>
+									<PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Vendor"/>
+									<PropertyValue Property="InsertRestrictions">
+										<Record>
+											<PropertyValue Property="Insertable" Bool="false"/>
+										</Record>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.SearchRestrictions">
+					<Record>
+						<PropertyValue Property="Searchable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="Filterable" Bool="true"/>
+						<PropertyValue Property="FilterExpressionRestrictions">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Property" PropertyPath="Description"/>
+									<PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>__EntityControl</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>Description</PropertyPath>
+								<PropertyPath>__EntityControl</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.InsertRestrictions">
+					<Record>
+						<PropertyValue Property="Insertable" Bool="false"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.DeleteRestrictions">
+					<Record>
+						<PropertyValue Property="Deletable" Path="__EntityControl/Deletable"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__capabilities.UpdateRestrictions">
+					<Record>
+						<PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+						<PropertyValue Property="QueryOptions">
+							<Record>
+								<PropertyValue Property="SelectSupported" Bool="true"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="SAP__core.OptimisticConcurrency">
+					<Collection/>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType">
+				<Annotation Term="SAP__common.Label" String="Products"/>
+				<Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+			</Annotations>
+			<Annotations Target="SAP__self.GoodsType/__EntityControl/Deletable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.GoodsType/__EntityControl/Updatable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorType/__EntityControl/Deletable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorType/__EntityControl/Updatable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorType/__OperationControl/replenishProduct">
+				<Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseType/__CreateByAssociationControl/_Goods">
+				<Annotation Term="SAP__common.Label" String="Dynamic CbA-Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Create by Association Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Create via Association Control Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseType/__EntityControl/Deletable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseType/__EntityControl/Updatable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType/__EntityControl/Deletable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.ProductType/__EntityControl/Updatable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.WarehouseCbAControl/_Goods">
+				<Annotation Term="SAP__common.Label" String="Dynamic CbA-Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Create by Association Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Create via Association Control Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.VendorOperationControl/replenishProduct">
+				<Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.EntityControl/Deletable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.EntityControl/Updatable">
+				<Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+				<Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+				<Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+			</Annotations>
+			<Annotations Target="SAP__self.replenishProduct(SAP__self.VendorType)/ProductID">
+				<Annotation Term="SAP__common.Label" String="ID"/>
+			</Annotations>
+			<Annotations Target="SAP__self.replenishProduct(SAP__self.VendorType)/NumberOfItems">
+				<Annotation Term="SAP__common.Label" String="INT2"/>
+				<Annotation Term="SAP__common.QuickInfo" String="2 Byte Signed Integer"/>
+			</Annotations>
+			<Annotations Target="SAP__self.replenishProduct(SAP__self.VendorType)/WarehouseID">
+				<Annotation Term="SAP__common.Label" String="UUID"/>
+				<Annotation Term="SAP__common.QuickInfo" String="16 Byte UUID in 16 Bytes (Raw Format)"/>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
