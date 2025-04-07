@@ -1,15 +1,10 @@
-using { cuid, Currency, Country } from '@sap/cds/common';
+using { cuid, Currency, Country, sap } from '@sap/cds/common';
 
 namespace com.gavdi.db;
 
-type status : String enum {
-    InStock;
-    InTransit;
-    Damaged;
-    Reserved;
-    Packed;
-    OutOfStock;
-    Returned
+entity StockStatus : sap.common.CodeList {
+    key code: Integer @assert.range: [0,3];
+    descr : String;
 }
 
 entity Warehouse : cuid {
@@ -24,7 +19,7 @@ entity Goods {
     key warehouseId : Association to Warehouse;
     key itemId : UUID;
     spaceRequired : Int16;
-    state : status;
+    state : Association to StockStatus;
     cost: Decimal;
     currencyCode: Currency;
     deliveryDate: Date;
