@@ -13,6 +13,7 @@ type status : String enum {
 }
 
 entity Warehouse : cuid {
+    name: String;
     spaceAvailable : Int16;
     spaceUtilized : Int16;
     location : Association to Locations;
@@ -41,7 +42,7 @@ entity Locations : cuid {
 
 entity Products {
     key productId : UUID;
-    key vendorId : Association to Vendors;
+    vendor : Association to Vendors;
     title : String;
     description: String;
     price: Decimal;
@@ -55,5 +56,5 @@ entity Vendors : cuid {
     name: String;
     location: Association to Locations;
     logoUrl: String;
-    products: Composition of many Products on products.vendorId = $self;
+    products: Association to many Products on products.vendor = $self;
 }

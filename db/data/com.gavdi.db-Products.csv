@@ -1,4 +1,4 @@
-productId,vendorId_ID,title,description,price,currencyCode_code,promoted,quantity,imageUrl
+productId,vendor_ID,title,description,price,currencyCode_code,promoted,quantity,imageUrl
 aa3f9d87-6e5e-46e0-a2ad-90bdb49e23ce,51c6f761-98f5-4b56-80ef-4c29e3ccf3d0,Zephyr X1,Breathable trail runner with cloud-foam tech,129.99,USD,True,140
 bf3dc8ef-58f1-4d63-8856-3a0c2cb84720,2adf3d0d-0891-4689-9e3e-9c8484911809,Voltar Eclipse,High-top sneaker with glow outsole,89.50,USD,False,80
 58aa64d4-87b6-4f13-964f-5ffcd212cbbb,c4c6e6e6-e4a1-4899-8a0c-bf48e19a5037,Aerostride Vento,Ultra-light trainer with wind-weave mesh,114.95,EUR,False,240
