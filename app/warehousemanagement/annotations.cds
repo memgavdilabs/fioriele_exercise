@@ -166,8 +166,10 @@ annotate service.Goods with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : state,
+            Value : state_code,
             Label : '{i18n>Stockstatus}',
+            Criticality : state_code,
+            CriticalityRepresentation : #WithIcon,
         },
     ]
 );
@@ -250,6 +252,13 @@ annotate service.Location with {
     ID @Common.Text : {
         $value : city,
         ![@UI.TextArrangement] : #TextOnly,
+    }
+};
+
+annotate service.Goods with {
+    state @Common.Text : {
+        $value : state.name,
+        ![@UI.TextArrangement] : #TextOnly
     }
 };
 
