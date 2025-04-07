@@ -5,6 +5,11 @@ annotate service.Warehouse with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
+            Value : name,
+            Label : '{i18n>WarehouseName}',
+        },
+        {
+            $Type : 'UI.DataField',
             Value : location.city,
             Label : '{i18n>location}',
             ![@UI.Importance] : #High,
@@ -28,7 +33,7 @@ annotate service.Warehouse with @(
     UI.HeaderInfo : {
         Title : {
             $Type : 'UI.DataField',
-            Value : location.city,
+            Value : name,
         },
         TypeName : '',
         TypeNamePlural : '',
@@ -46,6 +51,11 @@ annotate service.Warehouse with @(
         },
         {
             $Type : 'UI.ReferenceFacet',
+            ID : 'city',
+            Target : 'location/@UI.DataPoint#city',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
             ID : 'name',
             Target : 'location/country/@UI.DataPoint#name',
         },
@@ -53,11 +63,42 @@ annotate service.Warehouse with @(
     UI.Facets : [
         {
             $Type : 'UI.ReferenceFacet',
+            Label : 'General Information',
+            ID : 'GeneralInformation',
+            Target : '@UI.FieldGroup#GeneralInformation',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
             Label : 'Goods',
             ID : 'Goods',
             Target : 'Goods/@UI.LineItem#Goods',
         },
     ],
+    UI.FieldGroup #GeneralInformation : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : name,
+                Label : '{i18n>WarehouseName}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : location_ID,
+                Label : '{i18n>Location}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : spaceAvailable,
+                Label : '{i18n>spaceavailable}',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : spaceUtilized,
+                Label : '{i18n>spaceutilized}',
+            },
+        ],
+    },
 );
 
 annotate service.Location with {
@@ -88,7 +129,12 @@ annotate service.Location with @(
         $Type : 'UI.DataPointType',
         Value : longitude,
         Title : '{i18n>Longitude}',
-    }
+    },
+    UI.DataPoint #city : {
+        $Type : 'UI.DataPointType',
+        Value : city,
+        Title : '{i18n>City}',
+    },
 );
 
 annotate service.Countries with @(
@@ -105,33 +151,105 @@ annotate service.Goods with @(
     UI.LineItem #Goods : [
         {
             $Type : 'UI.DataField',
-            Value : itemId,
-            Label : 'itemId',
+            Value : product_productId,
+            Label : '{i18n>GoodsTitle}',
         },
         {
             $Type : 'UI.DataField',
-            Value : product.productId,
-            Label : 'productId',
+            Value : deliveryDate,
+            Label : '{i18n>Deliverydate}',
         },
         {
             $Type : 'UI.DataField',
-            Value : product.title,
-            Label : 'title',
+            Value : spaceRequired,
+            Label : '{i18n>Spacerequired}',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : state,
+            Label : '{i18n>Stockstatus}',
         },
     ]
 );
 
+
+
 annotate service.Goods with {
-    itemId @Common.Text : {
-        $value : product.title,
-        ![@UI.TextArrangement] : #TextLast
-    }
+    product @(
+        Common.Text : {
+            $value : product.title,
+            ![@UI.TextArrangement] : #TextOnly
+        },
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Products',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : product_productId,
+                    ValueListProperty : 'productId',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'description',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : false,
+    )
 };
 
 annotate service.Products with {
     productId @Common.Text : {
         $value : title,
-        ![@UI.TextArrangement] : #TextFirst
+        ![@UI.TextArrangement] : #TextOnly,
+    }
+};
+
+annotate service.Countries with {
+    name @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Countries',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : name,
+                    ValueListProperty : 'name',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true
+)};
+
+annotate service.Warehouse with {
+    location @(
+        Common.Text : {
+            $value : location.city,
+            ![@UI.TextArrangement] : #TextOnly
+        },
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Location',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : location_ID,
+                    ValueListProperty : 'ID',
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'country/name',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true,
+    )
+};
+
+annotate service.Location with {
+    ID @Common.Text : {
+        $value : city,
+        ![@UI.TextArrangement] : #TextOnly,
     }
 };
 

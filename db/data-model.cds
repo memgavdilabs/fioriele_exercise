@@ -12,6 +12,7 @@ type status : String enum {
     Returned
 }
 
+@odata.draft.enabled
 entity Warehouse : cuid {
     name: String;
     spaceAvailable : Int16;
