@@ -7,3 +7,11 @@ service WarehouseManagementService {
     entity Location as projection on db.Locations;
     entity Vendor as projection on db.Vendors;
 }
+
+annotate WarehouseManagementService.Warehouse with @Aggregation.ApplySupported  : {
+    Transformations: ['aggregate', 'groupby', 'identity', 'filter'],
+    Rollup                : #None,
+    PropertyRestrictions  : true,
+    AggregatableProperties: [{Property: spaceAvailable}, {Property: spaceUtilized}],
+    GroupableProperties: [location.city]
+};
