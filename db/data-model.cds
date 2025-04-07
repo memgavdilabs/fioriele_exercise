@@ -7,6 +7,7 @@ entity StockStatus : sap.common.CodeList {
     descr : String;
 }
 
+@odata.draft.enabled
 entity Warehouse : cuid {
     name: String;
     spaceAvailable : Int16;

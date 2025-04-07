@@ -162,7 +162,10 @@
                     "enableExport": false,
                     "enablePaste": false,
                     "selectionMode": "Multi",
-                    "type": "ResponsiveTable"
+                    "type": "ResponsiveTable",
+                    "creationMode": {
+                      "name": "Inline"
+                    }
                   }
                 }
               }
