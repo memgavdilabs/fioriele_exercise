@@ -1,0 +1,190 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.gavdi.warehousemanagement",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.17.1",
+      "toolsId": "83f695ac-6838-49c8-862a-317eb8329724"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/warehouse-management/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.gavdi.warehousemanagement.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "WarehouseList",
+          "target": "WarehouseList"
+        },
+        {
+          "pattern": "Warehouse({key}):?query:",
+          "name": "WarehouseObjectPage",
+          "target": "WarehouseObjectPage"
+        },
+        {
+          "pattern": "Warehouse({key})/Goods({key2}):?query:",
+          "name": "GoodsObjectPage",
+          "target": "GoodsObjectPage"
+        }
+      ],
+      "targets": {
+        "WarehouseList": {
+          "type": "Component",
+          "id": "WarehouseList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Warehouse",
+              "variantManagement": "Page",
+              "navigation": {
+                "Warehouse": {
+                  "detail": {
+                    "route": "WarehouseObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "disableCopyToClipboard": false,
+                    "enableExport": false,
+                    "selectionMode": "Multi"
+                  },
+                  "columns": {
+                    "DataField::location::city": {
+                      "width": "50%"
+                    },
+                    "DataField::spaceAvailable": {
+                      "width": "25%"
+                    },
+                    "DataField::spaceUtilized": {
+                      "width": "25%"
+                    }
+                  }
+                }
+              },
+              "initialLoad": "Enabled"
+            }
+          }
+        },
+        "WarehouseObjectPage": {
+          "type": "Component",
+          "id": "WarehouseObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Warehouse",
+              "navigation": {
+                "Goods": {
+                  "detail": {
+                    "route": "GoodsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "Goods/@com.sap.vocabularies.UI.v1.LineItem#Goods": {
+                  "tableSettings": {
+                    "disableCopyToClipboard": false,
+                    "enableExport": false,
+                    "enablePaste": false,
+                    "selectionMode": "Multi",
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "GoodsObjectPage": {
+          "type": "Component",
+          "id": "GoodsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Warehouse/Goods"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
