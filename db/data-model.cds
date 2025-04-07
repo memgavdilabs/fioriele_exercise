@@ -2,6 +2,16 @@ using { cuid, Currency, Country } from '@sap/cds/common';
 
 namespace com.gavdi.db;
 
+type status : String enum {
+    InStock;
+    InTransit;
+    Damaged;
+    Reserved;
+    Packed;
+    OutOfStock;
+    Returned
+}
+
 entity Warehouse : cuid {
     spaceAvailable : Int16;
     spaceUtilized : Int16;
@@ -13,7 +23,7 @@ entity Goods {
     key warehouseId : Association to Warehouse;
     key itemId : UUID;
     spaceRequired : Int16;
-    state : String;
+    state : status;
     cost: Decimal;
     currencyCode: Currency;
     deliveryDate: Date;
@@ -47,5 +57,3 @@ entity Vendors : cuid {
     logoUrl: String;
     products: Composition of many Products on products.vendorId = $self;
 }
-
-
