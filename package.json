@@ -15,10 +15,12 @@
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@cap-js/cds-types": "^0.8.0",
-    "@sap/cds-dk": "^8.5.1"
+    "@sap/cds-dk": "^8.5.1",
+    "cds-plugin-ui5": "^0.9.3"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-warehousemanagement": "cds watch --open com.gavdi.warehousemanagement/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "requires": {
@@ -27,5 +29,11 @@
         "model": "srv/external/api_external"
       }
     }
-  }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/warehousemanagement"
+  ]
 }
