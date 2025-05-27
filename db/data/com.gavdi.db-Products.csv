@@ -1,30 +1,30 @@
-productId,vendor_ID,title,description,price,currencyCode_code,promoted,quantity,imageUrl
-aa3f9d87-6e5e-46e0-a2ad-90bdb49e23ce,51c6f761-98f5-4b56-80ef-4c29e3ccf3d0,Zephyr X1,Breathable trail runner with cloud-foam tech,129.99,USD,True,140
-bf3dc8ef-58f1-4d63-8856-3a0c2cb84720,2adf3d0d-0891-4689-9e3e-9c8484911809,Voltar Eclipse,High-top sneaker with glow outsole,89.50,USD,False,80
-58aa64d4-87b6-4f13-964f-5ffcd212cbbb,c4c6e6e6-e4a1-4899-8a0c-bf48e19a5037,Aerostride Vento,Ultra-light trainer with wind-weave mesh,114.95,EUR,False,240
-733c2f78-46e0-4205-950e-d948ec8722c6,a8c70b9e-ec4a-437e-b2c7-888b78b1845b,Nimbus Rogue,Street-style mid-top with flex heel,99.99,USD,True,90
-6aabb8f7-e873-4648-8914-23cf0df9d456,1652a7cd-bbde-40f5-a5ce-2e065a054bde,Phantom Drift,Performance running shoe with hybrid cushioning,119.00,USD,False,300
-0c4e063b-9616-44a7-93c2-4fc2578027e6,e9f1e4d1-50d4-4db5-8c2a-c252dc9e0cb3,Lumina Blaze,Reflective city runner with adaptive grip,89.99,GBP,True,70
-79db3124-949f-487c-b144-849bece35b87,bd3b1f1c-55f3-44aa-bd8b-b11b902e2a0d,Sonic Ember,Minimalist sneaker with flame-inspired tread,74.95,USD,False,120
-cb3517d1-82dc-4949-94db-3386c11a8587,5a5a473e-73c0-4d2f-a580-8d9b1e217723,Ignite Nova,Multi-sport shoe with core-react sole,134.00,EUR,True,55
-c6c0ea07-066b-4fd8-b20b-2d6f0c9dbab4,0bb03202-e8ed-4026-8dcf-efb727dbbe50,Terra Pulse,All-terrain hiker with eco-grip outsole,159.99,USD,True,65
-2fc1c2ea-02da-4e5f-bf6a-1c7a8c23466f,bc89190b-9362-4b4b-993f-bd57997871cf,Nightshade Flux,Low-profile runner with stealth mesh,98.00,USD,False,180
-ba4e0b3c-cd50-4a08-ae90-7be5979e2134,5b5d9a96-23e4-42a4-9a26-d7c61d0bc372,Storm Runner 2,All-weather trainer with ripple foam,89.95,USD,True,300
-f7df7d91-263f-4e9e-8fd4-e6342917f556,a6d93b56-5a79-41a0-b3df-7f94dd1a6ff7,Hyperstride Ace,Court sneaker with lateral flex support,129.00,USD,False,75
-69d22507-229f-4761-aafa-68d2a7cc0162,98ab1e8d-2f4a-4f3c-927b-d0a18f26d7c3,Cloudburst Haze,Featherweight slip-on with vapor knit,119.99,USD,False,200
-12b64ce6-194f-486e-b54a-f9d3a678a5c1,2b168baf-c665-4b14-bcb8-5c4937ea09cb,Aether Run Prime,Runner's choice with dual arc support,154.50,USD,True,30
-c7e3497b-6633-4a0c-b177-f1b460e1bd90,de248db7-bfe1-4cb1-928b-99f5f10b1ec2,Blitz Orbit,Classic runner with shockwave midsole,64.99,USD,True,200
-2d0d4874-3dc6-4c2a-9bc1-f34623c8e61d,e9f1e4d1-50d4-4db5-8c2a-c252dc9e0cb3,Mirage X-Step,Color-shift mesh upper with reflex pods,94.99,USD,True,90
-dbd187a4-3030-4fd0-8f14-55f88aa27b18,51c6f761-98f5-4b56-80ef-4c29e3ccf3d0,Halo Runner,Glowstripe detailing and gel bounce sole,109.95,USD,False,110
-7be38e7c-0fe5-4d4c-88a5-00034be2526c,1652a7cd-bbde-40f5-a5ce-2e065a054bde,Thrustline Zero,Minimalist barefoot shoe with foam lift,84.99,USD,False,150
-ff0dcac0-84a6-4a1d-8996-1d9b64bcd6df,2adf3d0d-0891-4689-9e3e-9c8484911809,Cirrus Edge,Everyday sneaker with motion arch frame,94.95,USD,True,55
-6ae5cc71-7a6e-4dd0-8b5f-56ac9139ef09,98ab1e8d-2f4a-4f3c-927b-d0a18f26d7c3,Obsidian Drift,Dark-mode trail shoe with vapor tread,124.99,USD,False,45
-ff0cb9aa-b616-4951-9288-3f15ce110b3c,bd3b1f1c-55f3-44aa-bd8b-b11b902e2a0d,Prism Blaze,Rainbow-speckled sole with cloud knit,88.00,USD,True,80
-af4170d5-51d1-452b-aab2-b2e55c65cc66,a6d93b56-5a79-41a0-b3df-7f94dd1a6ff7,Velocity Zenith,Road-runner with energy return zone,134.00,USD,False,95
-d198a413-7ba4-4d61-8ba3-9f4d12ae5b3c,0bb03202-e8ed-4026-8dcf-efb727dbbe50,Crimson Charge,Basketball shoe with full-court grip,139.00,USD,False,40
-f9e8fd9d-5cc3-493b-85c4-78ecb4a0a79a,c4c6e6e6-e4a1-4899-8a0c-bf48e19a5037,Zenith Cloudwalker,Orthopedic-style shoe with impact shield,129.99,USD,True,60
-b1c5cc4d-1b24-46d6-b55e-b99f8899bc25,de248db7-bfe1-4cb1-928b-99f5f10b1ec2,Driftcycle X3,Skater-inspired slip resistant shoe,89.95,USD,False,200
-02b64397-e66e-4982-88a0-c69e71d53644,5b5d9a96-23e4-42a4-9a26-d7c61d0bc372,Equinox Dash,Urban jogger with moisture control,114.95,USD,True,180
-76040559-cb6c-4e00-a4b4-29e253ed0867,bc89190b-9362-4b4b-993f-bd57997871cf,Fusion Trek,Multi-layer grip sole with toe flex zone,124.00,USD,False,70
-c8f00548-44c5-4b5e-8049-31342f307b5f,14f0a69e-49ac-4b33-999e-cf4a6f24f65d,Nebula Kicks,Cloud-form fit for walking comfort,78.99,USD,True,150
-c8fd3769-f9f4-4f14-9d82-88b2123087d1,8129eeb2-23d2-4303-8de2-5b11b444d9f4,CoreX Phantom,Dynamic balance tech in minimalist frame,104.99,USD,False,120
+productId,vendor_ID,title,description,price,currencyCode_code,promoted,availableQuantity,imageUrl,store_storeId
+aa3f9d87-6e5e-46e0-a2ad-90bdb49e23ce,51c6f761-98f5-4b56-80ef-4c29e3ccf3d0,Zephyr X1,Breathable trail runner with cloud-foam tech,129.99,USD,True,140,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+bf3dc8ef-58f1-4d63-8856-3a0c2cb84720,2adf3d0d-0891-4689-9e3e-9c8484911809,Voltar Eclipse,High-top sneaker with glow outsole,89.50,USD,False,80,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+58aa64d4-87b6-4f13-964f-5ffcd212cbbb,c4c6e6e6-e4a1-4899-8a0c-bf48e19a5037,Aerostride Vento,Ultra-light trainer with wind-weave mesh,114.95,EUR,False,240,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+733c2f78-46e0-4205-950e-d948ec8722c6,a8c70b9e-ec4a-437e-b2c7-888b78b1845b,Nimbus Rogue,Street-style mid-top with flex heel,99.99,USD,True,90,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+6aabb8f7-e873-4648-8914-23cf0df9d456,1652a7cd-bbde-40f5-a5ce-2e065a054bde,Phantom Drift,Performance running shoe with hybrid cushioning,119.00,USD,False,300,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+0c4e063b-9616-44a7-93c2-4fc2578027e6,e9f1e4d1-50d4-4db5-8c2a-c252dc9e0cb3,Lumina Blaze,Reflective city runner with adaptive grip,89.99,GBP,True,70,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+79db3124-949f-487c-b144-849bece35b87,bd3b1f1c-55f3-44aa-bd8b-b11b902e2a0d,Sonic Ember,Minimalist sneaker with flame-inspired tread,74.95,USD,False,120,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+cb3517d1-82dc-4949-94db-3386c11a8587,5a5a473e-73c0-4d2f-a580-8d9b1e217723,Ignite Nova,Multi-sport shoe with core-react sole,134.00,EUR,True,55,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+c6c0ea07-066b-4fd8-b20b-2d6f0c9dbab4,0bb03202-e8ed-4026-8dcf-efb727dbbe50,Terra Pulse,All-terrain hiker with eco-grip outsole,159.99,USD,True,65,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+2fc1c2ea-02da-4e5f-bf6a-1c7a8c23466f,bc89190b-9362-4b4b-993f-bd57997871cf,Nightshade Flux,Low-profile runner with stealth mesh,98.00,USD,False,180,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+ba4e0b3c-cd50-4a08-ae90-7be5979e2134,5b5d9a96-23e4-42a4-9a26-d7c61d0bc372,Storm Runner 2,All-weather trainer with ripple foam,89.95,USD,True,300,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+f7df7d91-263f-4e9e-8fd4-e6342917f556,a6d93b56-5a79-41a0-b3df-7f94dd1a6ff7,Hyperstride Ace,Court sneaker with lateral flex support,129.00,USD,False,75,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+69d22507-229f-4761-aafa-68d2a7cc0162,98ab1e8d-2f4a-4f3c-927b-d0a18f26d7c3,Cloudburst Haze,Featherweight slip-on with vapor knit,119.99,USD,False,200,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+12b64ce6-194f-486e-b54a-f9d3a678a5c1,2b168baf-c665-4b14-bcb8-5c4937ea09cb,Aether Run Prime,Runner's choice with dual arc support,154.50,USD,True,30,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+c7e3497b-6633-4a0c-b177-f1b460e1bd90,de248db7-bfe1-4cb1-928b-99f5f10b1ec2,Blitz Orbit,Classic runner with shockwave midsole,64.99,USD,True,200,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+2d0d4874-3dc6-4c2a-9bc1-f34623c8e61d,e9f1e4d1-50d4-4db5-8c2a-c252dc9e0cb3,Mirage X-Step,Color-shift mesh upper with reflex pods,94.99,USD,True,90,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+dbd187a4-3030-4fd0-8f14-55f88aa27b18,51c6f761-98f5-4b56-80ef-4c29e3ccf3d0,Halo Runner,Glowstripe detailing and gel bounce sole,109.95,USD,False,110,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+7be38e7c-0fe5-4d4c-88a5-00034be2526c,1652a7cd-bbde-40f5-a5ce-2e065a054bde,Thrustline Zero,Minimalist barefoot shoe with foam lift,84.99,USD,False,150,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+ff0dcac0-84a6-4a1d-8996-1d9b64bcd6df,2adf3d0d-0891-4689-9e3e-9c8484911809,Cirrus Edge,Everyday sneaker with motion arch frame,94.95,USD,True,55,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+6ae5cc71-7a6e-4dd0-8b5f-56ac9139ef09,98ab1e8d-2f4a-4f3c-927b-d0a18f26d7c3,Obsidian Drift,Dark-mode trail shoe with vapor tread,124.99,USD,False,45,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+ff0cb9aa-b616-4951-9288-3f15ce110b3c,bd3b1f1c-55f3-44aa-bd8b-b11b902e2a0d,Prism Blaze,Rainbow-speckled sole with cloud knit,88.00,USD,True,80,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+af4170d5-51d1-452b-aab2-b2e55c65cc66,a6d93b56-5a79-41a0-b3df-7f94dd1a6ff7,Velocity Zenith,Road-runner with energy return zone,134.00,USD,False,95,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+d198a413-7ba4-4d61-8ba3-9f4d12ae5b3c,0bb03202-e8ed-4026-8dcf-efb727dbbe50,Crimson Charge,Basketball shoe with full-court grip,139.00,USD,False,40,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+f9e8fd9d-5cc3-493b-85c4-78ecb4a0a79a,c4c6e6e6-e4a1-4899-8a0c-bf48e19a5037,Zenith Cloudwalker,Orthopedic-style shoe with impact shield,129.99,USD,True,60,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+b1c5cc4d-1b24-46d6-b55e-b99f8899bc25,de248db7-bfe1-4cb1-928b-99f5f10b1ec2,Driftcycle X3,Skater-inspired slip resistant shoe,89.95,USD,False,200,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+02b64397-e66e-4982-88a0-c69e71d53644,5b5d9a96-23e4-42a4-9a26-d7c61d0bc372,Equinox Dash,Urban jogger with moisture control,114.95,USD,True,180,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+76040559-cb6c-4e00-a4b4-29e253ed0867,bc89190b-9362-4b4b-993f-bd57997871cf,Fusion Trek,Multi-layer grip sole with toe flex zone,124.00,USD,False,70,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+c8f00548-44c5-4b5e-8049-31342f307b5f,14f0a69e-49ac-4b33-999e-cf4a6f24f65d,Nebula Kicks,Cloud-form fit for walking comfort,78.99,USD,True,150,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368
+c8fd3769-f9f4-4f14-9d82-88b2123087d1,8129eeb2-23d2-4303-8de2-5b11b444d9f4,CoreX Phantom,Dynamic balance tech in minimalist frame,104.99,USD,False,120,,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368

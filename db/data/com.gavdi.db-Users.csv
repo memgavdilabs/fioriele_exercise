@@ -1,0 +1,4 @@
+userId,name,email,address_street,address_city,address_country_code,type
+d5bf6df2-e200-4f6b-a6d9-d7401bcb2210,John Doe,jd@email.com,102 Hollow Lane,London,GB,Employee
+7b9cbc13-23cd-4134-bb79-85aa44f2ca06,Bart Simpson,bs@email.com,666 Devil Street,New York,US,Customer
+8577f48a-4e71-41a4-82b6-77eaf07d2997,Lisa Simpson,ls@email.com,666 Devil Street,New York,US,Customer
