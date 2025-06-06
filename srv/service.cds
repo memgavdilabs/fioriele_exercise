@@ -9,6 +9,10 @@ service WarehouseManagementService {
 
 service ShoppingService {
     entity Products as projection on db.Products;
-    entity Users    as projection on db.Users;
-    entity Sales    as projection on db.Sales;
+    entity Location as projection on db.Locations;
+    entity Vendor as projection on db.Vendors;
+    entity Stores as projection on db.Stores;
+    entity Sales as projection on db.Sales;
+    entity Users as projection on db.Users;
+    entity ProductReviews as projection on db.ProductReviews;
 }
