@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		id="myPopover"
+		title="{title}"
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
+		placement="Right">
+		
+        <content>
+            <List id="RatingList" items="{reviews}">
+                <items>
+                    <CustomListItem class="sapUiTinyMargin" type="Inactive" highlight="None">
+                        <HBox>
+                           	<VBox alignItems="Center" class="sapUiSmallMarginEnd">
+                                <Avatar
+                                    src=""
+                                    displaySize="S"
+                                    showBorder="true"
+                                    press="onPress"/>
+                                <Text
+                                    text="{user/name}"
+                                    class="sapUiSmallMarginTop"/>
+                            </VBox>
+                            <VBox class="sapUiSmallMarginEnd">
+                                <RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="{rating}" editable="false" iconSize="24px" />
+                                <Text text="{comment}" wrapping="true"/>
+                            </VBox>
+                        </HBox>
+                    </CustomListItem>
+                </items>               
+            </List>
+        </content>       
+		
+	</Popover>
+</core:FragmentDefinition>
