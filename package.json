@@ -20,13 +20,5 @@
   },
   "scripts": {
     "start": "cds-serve"
-  },
-  "cds": {
-    "requires": {
-      "api_external": {
-        "kind": "odata",
-        "model": "srv/external/api_external"
-      }
-    }
   }
 }

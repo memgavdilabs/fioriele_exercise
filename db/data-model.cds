@@ -75,6 +75,7 @@ entity Users {
         name    : String;
         email   : String;
         address : Address;
+        phone: String;
         type    : String enum {
             Employee;
             Customer
