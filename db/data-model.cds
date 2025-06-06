@@ -87,9 +87,15 @@ entity Users {
 
 entity Sales {
     key basketId : UUID;
+        store    : Association to Stores;
         user     : Association to Users;
-        product  : Association to Products;
+        salesItems : Association to many SalesItem on salesItems.sale = $self;
+}
+
+entity SalesItem {
+    key product  : Association to Products;        
         quantity : Integer;
+        sale     : Association to one Sales;
 }
 
 entity Vendors : cuid {
