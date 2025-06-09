@@ -1,1 +1,2 @@
-basketId,user_userId,product_productId,quantity
+basketId,store_storeId,user_userId
+1,9ded5cf0-8f13-4220-a9ea-bfe00c3b6368,7b9cbc13-23cd-4134-bb79-85aa44f2ca06
