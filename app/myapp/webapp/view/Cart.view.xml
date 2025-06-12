@@ -1,0 +1,70 @@
+<mvc:View
+	controllerName="com.myorg.myapp.controller.Cart"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+    xmlns:f="sap.f"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+
+<f:DynamicPage id="dynamicPageId" showFooter="true">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Cart"/>
+				</f:heading>	
+			</f:DynamicPageTitle>
+		</f:title>		
+		<f:content>
+            <VBox>
+                <Table id="CartTable" items="{ path: 'cartModel>/Products' }">				
+                    <columns>
+                        <Column>
+                            <Text text="Product" />
+                        </Column>	
+                        <Column>
+                            <Text text="Quatity" />
+                        </Column>	
+                        <Column>
+                            <Text text="Item price" />
+                        </Column>							
+                        <Column>
+                            <Text text="Total price" />
+                        </Column>							
+                    </columns>			
+                    <items>
+                        <ColumnListItem type="Active" vAlign="Middle">
+                            <cells>
+                                <Text text="{cartModel>productTitle}"/>		
+                            </cells>	
+                            <cells>
+                                <StepInput value="{cartModel>quatity}" width="30px" change="onQuatityStepInputChange"/>		
+                            </cells>	
+                            <cells>
+                                <Text text="{cartModel>price}"/>		
+                            </cells>					
+                            <cells>
+                                <Text text="{cartModel>totalPrice}"/>		
+                            </cells>					
+                        </ColumnListItem>
+                    </items>                
+                </Table>            
+                <HBox justifyContent="End" class="sapUiSmallMargin">
+                    <Title text="Total price" class="sapUiTinyMarginEnd"/>
+                    <Text text="{cartModel>/TotalPrice}" />                    
+                </HBox>
+            </VBox>
+        </f:content>
+		<!-- DynamicPage Footer -->
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+</mvc:View>

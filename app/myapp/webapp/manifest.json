@@ -70,6 +70,11 @@
 				    }
 				}
 			},
+			"cartModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},				
+				"preload": true
+			},
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
@@ -97,12 +102,21 @@
 					"pattern": "",
 					"name": "main",
 					"target": "main"
+				},
+				{
+					"pattern": "cart",
+					"name": "cart",
+					"target": "cart"
 				}
 			],
 			"targets": {
 				"main": {
 					"viewId": "main",
 					"viewName": "Main"
+				},
+				"cart": {
+					"viewId": "cart",
+					"viewName": "Cart"
 				}
 			}
 		}

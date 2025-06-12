@@ -15,6 +15,7 @@ export default abstract class BaseController extends Controller {
 	 * Convenience method for accessing the component of the controller's view.
 	 * @returns The component of the controller's view
 	 */
+
 	public getOwnerComponent(): AppComponent {
 		return super.getOwnerComponent() as AppComponent;
 	}
