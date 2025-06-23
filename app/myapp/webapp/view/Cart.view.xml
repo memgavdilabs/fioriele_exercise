@@ -1,0 +1,59 @@
+<mvc:View
+	controllerName="com.myorg.myapp.controller.Cart"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:f="sap.f"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+
+    <f:DynamicPage id="dynamicPageId">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Cart"/>
+				</f:heading>	
+			</f:DynamicPageTitle>
+		</f:title>
+        <f:content>
+			<VBox >
+                <Table id="idProductsTable"
+                    inset="false"
+                    items="{
+                        path: 'cartModel>/Products'                       
+                    }">                   
+                 
+                    <columns>
+                        <Column>
+                            <Text text="Product" />                        
+                        </Column>
+                        <Column
+                            minScreenWidth="Tablet"
+                            demandPopin="true">
+                            <Text text="Quantity" />
+                        </Column>
+                        <Column
+                            minScreenWidth="Desktop"
+                            demandPopin="true"
+                            hAlign="End">
+                            <Text text="Price" />
+                        </Column>                       
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>                              
+                                <Text text="{cartModel>productTitle}" />
+                                <StepInput value="{cartModel>quantity}" width="30px"/>
+                                <Text text="{cartModel>price}" />                              
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+		</f:content>
+				
+	</f:DynamicPage>
+</mvc:View>

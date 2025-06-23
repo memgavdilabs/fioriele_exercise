@@ -30,7 +30,7 @@
 					<core:Icon
 						src="sap-icon://cart"
 						size="50px"							
-						press="handleStethoscopePress">		
+						press="onPressCart">		
 					</core:Icon>											
 				</HBox>				
 			</f:DynamicPageHeader>
@@ -41,7 +41,12 @@
 				<f:GridList
 					id="idProductGridList"
 					headerText="Products"
-					items="{/Products}">
+					items="{
+						path: '/Products',
+						parameters: {
+							$select: 'store_storeId'
+						}
+					}">
 					<f:customLayout>
 						<grid:GridBoxLayout boxWidth="20rem"/>
 					</f:customLayout>
@@ -58,12 +63,16 @@
 									<Label text="{description}" wrapping="true" />
 								</VBox>
 							</HBox>
+							<HBox justifyContent="End" class="sapUiSmallMargin">
+								<Text text="{price}" class="sapUiTinyMarginEnd"/>
+								<Text text="{currencyCode_code}"/>
+							</HBox>
 							<HBox class="sapUiTinyMargin" justifyContent="SpaceBetween">
 								<HBox >
 									<Button icon="sap-icon://add-favorite"/>
 									<Button icon="sap-icon://measure" class="sapUiTinyMarginBegin" press="onPressRating"/>
 								</HBox>
-								<Button icon="sap-icon://cart" />
+								<Button icon="sap-icon://cart" press="onPressProduct"/>
 							</HBox>
 						</VBox>
 					</f:GridListItem>
