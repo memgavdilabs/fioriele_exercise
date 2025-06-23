@@ -1,0 +1,92 @@
+<mvc:View
+	controllerName="com.myorg.myapp.controller.Main"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{
+		formatter: 'com/myorg/myapp/model/formatter'
+	}">
+
+	<f:DynamicPage id="dynamicPageId">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Webshop"/>
+				</f:heading>	
+			</f:DynamicPageTitle>
+		</f:title>
+		<!-- DynamicPage Header -->
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">				
+				<HBox alignItems="Start" justifyContent="SpaceBetween">
+					<Avatar
+						src=""
+						displaySize="XL"
+						imageFitType="Cover"/>
+					<core:Icon
+						src="sap-icon://cart"
+						size="50px"							
+						press="onPressCart">		
+					</core:Icon>											
+				</HBox>				
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<VBox >
+				<SearchField width="90%" class="sapUiSmallMargin" showSearchButton="false" change="onSearchProducts"/>
+				<f:GridList
+					id="idProductGridList"
+					headerText="Products"
+					items="{
+						path: '/Products',
+						parameters: {
+							$select: 'store_storeId'
+						}
+					}">
+					<f:customLayout>
+						<grid:GridBoxLayout boxWidth="20rem"/>
+					</f:customLayout>
+					<f:GridListItem> 
+						<VBox>
+							<HBox>
+								<Avatar
+									src="{imageUrl}"
+									displaySize="L"
+									backgroundColor="Transparent"
+									press="onPress"/>
+								<VBox class="sapUiSmallMargin">
+									<Title text="{title}" wrapping="true" />
+									<Label text="{description}" wrapping="true" />
+								</VBox>
+							</HBox>
+							<HBox justifyContent="End" class="sapUiSmallMargin">
+								<Text text="{price}" class="sapUiTinyMarginEnd"/>
+								<Text text="{currencyCode_code}"/>
+							</HBox>
+							<HBox class="sapUiTinyMargin" justifyContent="SpaceBetween">
+								<HBox >
+									<Button icon="sap-icon://add-favorite"/>
+									<Button icon="sap-icon://measure" class="sapUiTinyMarginBegin" press="onPressRating"/>
+								</HBox>
+								<Button icon="sap-icon://cart" press="onPressProduct"/>
+							</HBox>
+						</VBox>
+					</f:GridListItem>
+				</f:GridList>
+			</VBox>
+		</f:content>
+		<!-- DynamicPage Footer -->
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+
+</mvc:View>

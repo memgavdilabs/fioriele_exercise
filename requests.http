@@ -1,0 +1,19 @@
+### GET Products with name and quantity
+GET http://localhost:4004/odata/v4/warehouse-management/Products?$select=productId,title,availableQuantity
+
+### Call function checkStockInStore
+GET http://localhost:4004/odata/v4/warehouse-management/checkStockInStore(storeId='9ded5cf0-8f13-4220-a9ea-bfe00c3b6368',productId='aa3f9d87-6e5e-46e0-a2ad-90bdb49e23ce',appliedQty=105)
+
+
+### Create a new sales
+POST http://localhost:4004/odata/v4/warehouse-management/Sales
+Content-Type: application/json
+
+{   
+    "store_storeId": "9ded5cf0-8f13-4220-a9ea-bfe00c3b6368",
+    "user_userId": "7b9cbc13-23cd-4134-bb79-85aa44f2ca06",
+    "salesItems": [{
+        "product_productId" : "aa3f9d87-6e5e-46e0-a2ad-90bdb49e23ce",
+        "quantity" : 10
+    }]
+}

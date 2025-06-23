@@ -1,0 +1,4 @@
+ID,product_productId,user_userId,rating,comment,createdAt,createdBy,modifiedAt,modifiedBy
+3bfb3366-6649-4d68-be7e-3d885da507d0,aa3f9d87-6e5e-46e0-a2ad-90bdb49e23ce,7b9cbc13-23cd-4134-bb79-85aa44f2ca06,1,Too small for my feet,,,,,
+bb080afb-6ea2-481c-b225-fa85af556690,aa3f9d87-6e5e-46e0-a2ad-90bdb49e23ce,8577f48a-4e71-41a4-82b6-77eaf07d2997,4,Perfect fit,,,,,
+5169d7ed-4b69-4f73-bd47-caeb56a6f71b,bf3dc8ef-58f1-4d63-8856-3a0c2cb84720,7b9cbc13-23cd-4134-bb79-85aa44f2ca06,3,Love them,,,,,
