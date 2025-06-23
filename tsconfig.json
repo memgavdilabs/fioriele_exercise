@@ -14,5 +14,6 @@
         "./@cds-models/*"
       ]
     }
-  }
+  },
+  "exclude": ["app", "gen"]
 }
