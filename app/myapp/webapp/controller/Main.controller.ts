@@ -10,6 +10,7 @@ import GridList from "sap/f/GridList";
 import ODataListBinding from "sap/ui/model/odata/v4/ODataListBinding";
 import ODataModel from "sap/ui/model/odata/v4/ODataModel";
 import JSONModel from "sap/ui/model/json/JSONModel";
+import { Select$ChangeEvent } from "sap/m/Select";
 
 enum StockStatus {
 	InStock = "Available",
@@ -20,7 +21,8 @@ type cartObject = {
 	productId: string,
 	productTitle: string,
 	quantity: int,
-	price: float
+	price: float,
+	totalPrice: float
 }
 
 /**
@@ -30,7 +32,31 @@ export default class Main extends BaseController {
 
 	private oDialog: Popover;
 	public onInit(): void {
+		this.bindUser();
+	}
+
+	public bindUser() {
+		const sUserId = 'd5bf6df2-e200-4f6b-a6d9-d7401bcb2210';
+		this.getView().bindElement({ 
+			path: `/Users(${sUserId})`, 
+			events: { 
+				dataReceived: () => {                  
+					const oCartModel = this.getView().getModel("cartModel") as JSONModel;
+					oCartModel.setProperty("/User", sUserId);	
+					oCartModel.setProperty("/Store", '9ded5cf0-8f13-4220-a9ea-bfe00c3b6368');					
+				}         
+        	}      
+		});	
 		
+	}
+
+	/**
+	 * onVendorSelectChange
+	 */
+	public onVendorSelectChange(oEvent: Select$ChangeEvent) {
+		const sKey = oEvent.getParameter("selectedItem").getKey();
+		const oCartModel = this.getView().getModel("cartModel") as JSONModel;					
+		oCartModel.setProperty("/Vendor", sKey);
 	}
 
 	public async onPressProduct(oEvent: Button$PressEvent) {
@@ -49,10 +75,12 @@ export default class Main extends BaseController {
 	    await oContextBinding.invoke().then( () => {
 			const sInStock = oContextBinding.getBoundContext().getProperty("value") as StockStatus;
 			if(sInStock === StockStatus.InStock) {
-				const cartModel = this.getView().getModel("cartModel") as JSONModel;
-				const aItems = cartModel.getProperty("/Products") as cartObject[] || [];
-				aItems.push({ price: fPrice, productId: sProductId, productTitle: sProductTitle, quantity: 1});
-				cartModel.setProperty("/Products", aItems);
+				const oCartModel = this.getView().getModel("cartModel") as JSONModel;
+				const aItems = oCartModel.getProperty("/Products") as cartObject[] || [];
+				aItems.push({ price: fPrice, productId: sProductId, productTitle: sProductTitle, quantity: 1, totalPrice: fPrice});
+				oCartModel.setProperty("/Products", aItems);
+				const totalPrice = oCartModel.getProperty("/TotalPrice") as float || 0;
+				oCartModel.setProperty("/TotalPrice", totalPrice + fPrice);
 				MessageBox.information("Item added");
 			}
 		}).catch( ()=> {

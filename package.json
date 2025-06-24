@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/sqlite": "^1.7.3",
     "@sap-cloud-sdk/connectivity": "^3",
     "@sap-cloud-sdk/http-client": "^3",
     "@sap-cloud-sdk/resilience": "^3",

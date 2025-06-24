@@ -20,38 +20,46 @@
 		</f:title>
         <f:content>
 			<VBox >
-                <Table id="idProductsTable"
-                    inset="false"
-                    items="{
-                        path: 'cartModel>/Products'                       
-                    }">                   
-                 
+                <Table id="CartTable" items="{ path: 'cartModel>/Products' }">				
                     <columns>
                         <Column>
-                            <Text text="Product" />                        
-                        </Column>
-                        <Column
-                            minScreenWidth="Tablet"
-                            demandPopin="true">
-                            <Text text="Quantity" />
-                        </Column>
-                        <Column
-                            minScreenWidth="Desktop"
-                            demandPopin="true"
-                            hAlign="End">
-                            <Text text="Price" />
-                        </Column>                       
-                    </columns>
+                            <Text text="Product" />
+                        </Column>	                       
+                        <Column>
+                            <Text text="Item price" />
+                        </Column>	
+                        <Column>
+                            <Text text="Quatity" />
+                        </Column>							
+                        <Column>
+                            <Text text="Total price" />
+                        </Column>							
+                    </columns>			
                     <items>
-                        <ColumnListItem vAlign="Middle">
-                            <cells>                              
-                                <Text text="{cartModel>productTitle}" />
-                                <StepInput value="{cartModel>quantity}" width="30px"/>
-                                <Text text="{cartModel>price}" />                              
-                            </cells>
+                        <ColumnListItem type="Active" vAlign="Middle">
+                            <cells>
+                                <Text text="{cartModel>productTitle}"/>		
+                            </cells>	
+                            <cells>
+                                <Text text="{cartModel>price}"/>		
+                            </cells>	
+                            <cells>
+                                <StepInput value="{cartModel>quantity}" width="30px" change="onQuatityStepInputChange"/>		
+                            </cells>				
+                            <cells>
+                                <Text text="{cartModel>totalPrice}"/>		
+                            </cells>					
                         </ColumnListItem>
-                    </items>
-                </Table>
+                    </items>                
+                </Table>     
+                 <HBox justifyContent="End" class="sapUiSmallMargin">
+                    <Title text="Total price" class="sapUiTinyMarginEnd"/>
+                    <Text text="{cartModel>/TotalPrice}" />                    
+                </HBox>
+                <HBox justifyContent="Center" class="sapUiSmallMargin">
+                    <Button text="Continue shopping" press="onContShopping" icon="sap-icon://fallback" class="sapUiSmallMarginEnd"/>                 
+                    <Button text="Checkout" press="onCheckout" icon="sap-icon://cart-approval" class="sapUiSmallMarginEnd"/>                 
+                </HBox>
             </VBox>
 		</f:content>
 				
