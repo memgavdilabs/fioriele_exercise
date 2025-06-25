@@ -12,4 +12,5 @@ service WarehouseManagementService {
     entity ProductReviews as projection on db.ProductReviews;
 
     function checkStockInStore(storeId: String, productId: String, appliedQty: Integer) returns String;
+    action startWf(basketId: UUID) returns String;
 }

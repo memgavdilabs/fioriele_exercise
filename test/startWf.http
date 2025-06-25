@@ -1,0 +1,7 @@
+### Start WF
+POST http://localhost:4004/odata/v4/warehouse-management/startWf HTTP/1.1 
+Content-Type: application/json
+
+{
+  "basketId": "1"
+}
