@@ -90,6 +90,7 @@ entity Sales {
     key basketId : UUID;
         store    : Association to Stores;
         user     : Association to Users;
+        vendor   : Association to Vendors;
         salesItems : Composition of many {
             key product : Association to Products;
             quantity: Integer;

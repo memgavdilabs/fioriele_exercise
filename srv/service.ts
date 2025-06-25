@@ -1,5 +1,6 @@
 import { Products, Sales } from "#cds-models/WarehouseManagementService";
 import cds from "@sap/cds";
+import { UUID } from "crypto";
 
 export class WarehouseManagementService extends cds.ApplicationService {
   init() {
@@ -22,8 +23,35 @@ export class WarehouseManagementService extends cds.ApplicationService {
       }
     });
 
+    this.on("startWf", async (req) => {
+
+      this.initWf(req.data.basketId);
+
+     /*  const salesOrder = await SELECT.one.from(Sales).where({
+        basketId : req.data.basketId
+      }).columns((order: any) => {
+        order.basketId
+        order.store
+        order.user     
+        order.salesItems((item: any) => {
+          item.product_productId,
+          item.quantity
+        });
+      })
+      
+      const msgPayload = {"definitionId":"us10.2c7e6271trial.orderproject.orderProcess","context":{"salesOrder":salesOrder}};
+      try {
+        const wf = await cds.connect.to("bpa");
+        
+        const result = await wf.send("POST", '/public/workflow/rest/v1/workflow-instances', msgPayload);
+      } catch (error) {        
+        throw new Error("Error starting WF");
+      }	 */
+
+    });
+
     this.after("CREATE",Sales, async (data) => {
-      console.log(`Created Sale: ${JSON.stringify(data)}`);
+      //console.log(`Created Sale: ${JSON.stringify(data)}`);
       if(data && data.salesItems) {
         for(let saleItem of data.salesItems) {
           //here we reduce the availableQuantity of each product
@@ -33,8 +61,34 @@ export class WarehouseManagementService extends cds.ApplicationService {
           await UPDATE `Products` .set `availableQuantity = availableQuantity - ${quantity}` .where `productId = ${productId}`;
         }
       }
+      if(data?.basketId) {
+        this.initWf(data.basketId as UUID);
+      }
     })
 
     return super.init();
+  }
+
+  private async initWf(basketId:UUID) {
+    
+    const salesOrder = await SELECT.one.from(Sales).where({
+        basketId : basketId
+      }).columns((order: any) => {
+        order.basketId
+        order.store
+        order.user     
+        order.salesItems((item: any) => {
+          item.product_productId,
+          item.quantity
+        });
+      })
+      
+    const msgPayload = {"definitionId":"us10.2c7e6271trial.orderproject.orderProcess","context":{"salesOrder":salesOrder}};
+    try {
+      const wf = await cds.connect.to("bpa");      
+      const result = await wf.send("POST", '/public/workflow/rest/v1/workflow-instances', msgPayload);
+    } catch (error) {        
+      throw new Error("Error starting WF");
+    }	
   }
 }

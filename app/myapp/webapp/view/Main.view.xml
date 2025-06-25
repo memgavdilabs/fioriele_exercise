@@ -23,10 +23,15 @@
 		<f:header>
 			<f:DynamicPageHeader pinnable="true">				
 				<HBox alignItems="Start" justifyContent="SpaceBetween">
-					<Avatar
-						src=""
-						displaySize="XL"
-						imageFitType="Cover"/>
+					<HBox>
+						<Avatar
+							src=""
+							displaySize="L"
+							imageFitType="Cover"/>
+						<Text
+							text="{name}"
+							class="sapUiSmallMargin"/>
+					</HBox>
 					<core:Icon
 						src="sap-icon://cart"
 						size="50px"							
@@ -37,7 +42,20 @@
 		</f:header>
 		<f:content>
 			<VBox >
-				<SearchField width="90%" class="sapUiSmallMargin" showSearchButton="false" change="onSearchProducts"/>
+				<HBox>
+					<Select 	
+						change="onVendorSelectChange"	
+						class="sapUiSmallMargin"			
+						forceSelection="false" 
+						items="{ 
+							path: '/Vendor'                                                                                     
+						}">
+						<items>
+							<core:Item key="{ID}" text="{name}"/>
+						</items>
+					</Select>
+					<SearchField width="90%" class="sapUiSmallMargin" showSearchButton="false" change="onSearchProducts"/>
+				</HBox>
 				<f:GridList
 					id="idProductGridList"
 					headerText="Products"
